@@ -1,4 +1,5 @@
 import React from "react";
+import styled, { keyframes } from 'styled-components'
 /*
 const dummyData ={
     date: "2022-09-30",
@@ -8,6 +9,7 @@ const dummyData ={
   }
   */
 
+ 
 const NasaPhoto = (props) => {
     return (
         <div className='nasa-photo-wrapper'>

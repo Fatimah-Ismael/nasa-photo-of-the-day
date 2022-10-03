@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import NasaPhoto from "./NasaPhoto";
+import styled, { keyframes } from 'styled-components'
 
 import "./App.css";
 const dummyData ={
@@ -9,6 +10,29 @@ explanation: "A planet-wide collaboration resulted in this remarkable array of s
 hdurl: "https://apod.nasa.gov/apod/image/2209/SunriseATWImageCollageFinal4800px.jpg",
 title: "Equinox Sunrise Around the World"
 }
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+`;
+const Rotate = styled.div`
+  display: inline-block;
+  animation: ${rotate} 2s linear infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
+`;
+
+const StyledDiv = styled.div`
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  text-align: center;
+  color: violet;
+  background-color: midnightblue; 
+`;
+
 
 function App() {
   const [data, setData] = useState(dummyData);
@@ -22,9 +46,12 @@ function App() {
   }, [])
   
   return (
-    <div className="App">
+    <StyledDiv className="App">
+       <Rotate> 🪐   🚀   🪐   🚀   🪐   🚀   🪐   🚀   🪐  </Rotate>
       {data && <NasaPhoto photo={data} />}
-    </div>
+      <Rotate> 🪐   🚀   🪐  </Rotate>
+      
+    </StyledDiv>
   );
 
 }
